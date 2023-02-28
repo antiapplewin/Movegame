@@ -3,8 +3,9 @@
 #include <time.h>
 #include <Windows.h>
 #include "calculator.c"
+//#include "Attack.c"
 
-void Monster(int Lvl) {
+int Monster(int Lvl) {
 	srand(time(NULL));
 	int lvl, MT, Hp, esc = 0, PHp = 100;
 	MT = rand()%(3-1+1)+1;
@@ -25,7 +26,8 @@ void Monster(int Lvl) {
 		int attack;
 		printf("Your Hp : %d / Enemy\'s Hp : %d\n\n", PHp, Hp);
 		
-		printf("Which attack will you do? \n1 >>> Slash!\n");
+		printf("Which attack will you do?\n");
+		printf("1. Slash\n");
 		scanf("%d", &attack);
 		Hp -= attack + Lvl*2;
 		printf("You dealed %d DMG!\n", attack + Lvl*2);
@@ -39,13 +41,42 @@ void Monster(int Lvl) {
 					printf("Slime use body slam!\n");
 					Dmg = 1;
 			}
+		} else if (MT == 2) {
+			switch (rand()%2) {
+				case 0:
+					printf("Skeleton use trick aim shot!\n");
+					Dmg = 5;
+				case 1:
+					printf("Slime use bone trow!\n");
+					Dmg = 1;
+					Hp -= 1;
+			}
+		} else if (MT == 3) {
+			switch (rand()%2) {
+				case 0:
+					printf("Golem use ground shake!\n");
+					Dmg = 7;
+				case 1:
+					printf("Golem use roar!\n");
+					Dmg = 3;
+			}
 		}
-		printf("It had dealed %d dmg!", Dmg*lvl);
-		PHp -= Dmg*lvl;
-		esc = 1;
+		printf("It had dealed %d dmg!", Dmg*lvl/2);
+		PHp -= Dmg*lvl/2;
+		Sleep(1000);
+		system("cls");
 		if (esc==1) {
 			break;
+		}
+		if (PHp <= 0 || Hp <=0) {
+			esc = 1;
+			if (Hp<=0) {
+				return 10*MT*lvl;
+			} else {
+				return 0;
+			}
 		}
 	}
 	
 }
+
