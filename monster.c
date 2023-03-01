@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include "calculator.c"
 
-int Monster(int Lvl, int A1, int dmg1) {
+int Monster(int Lvl, int A1, int d1, int A2, int d2, int A3, int d3, int A4, int d4) {
 	srand(time(NULL));
 	int lvl, MT, Hp, esc = 0, PHp = 100;
 	MT = rand()%(3-1+1)+1;
@@ -26,15 +26,32 @@ int Monster(int Lvl, int A1, int dmg1) {
 		printf("Your Hp : %d / Enemy\'s Hp : %d\n\n", PHp, Hp);
 		
 		printf("Which attack will you do?\n");
-		if (A1==1) {
+		if (A1==1) { // A1 starter
 			printf("1. Slash\n");
 		}
-		scanf("%d", &attack);
-		if (attack == 1) {
-			Hp -= dmg1 + Lvl*2;
+		if (A2==1) { // A2 starter
+			printf("2. You don\' have a attack\n");
+		}
+		if (A3==1) { // A3 starter
+			printf("3. You don\' have a attack\n");
+		}
+		if (A4==1) { // A4 starter
+			printf("4. You don\' have a attack\n");
 		}
 		
-		printf("You dealed %d DMG!\n", attack + Lvl*2);
+		scanf("%d", &attack);
+		
+		if (attack==1) { //atype = 1
+			Hp -= d1*Lvl*2;
+		}else if (attack==2) { 
+			Hp -= d2*Lvl*2;
+		} else if (attack==3) {
+			Hp -= d3*Lvl*2;
+		} else if (attack==4) {
+			Hp -= d4*Lvl*2;
+		}
+		
+		printf("You dealed %d DMG!\n", attack*Lvl*2);
 		int Dmg;
 		if (MT == 1) {
 			switch (rand()%2) {
@@ -83,4 +100,3 @@ int Monster(int Lvl, int A1, int dmg1) {
 	}
 	
 }
-
