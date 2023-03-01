@@ -3,9 +3,8 @@
 #include <time.h>
 #include <Windows.h>
 #include "calculator.c"
-//#include "Attack.c"
 
-int Monster(int Lvl) {
+int Monster(int Lvl, int A1, int dmg1) {
 	srand(time(NULL));
 	int lvl, MT, Hp, esc = 0, PHp = 100;
 	MT = rand()%(3-1+1)+1;
@@ -27,9 +26,14 @@ int Monster(int Lvl) {
 		printf("Your Hp : %d / Enemy\'s Hp : %d\n\n", PHp, Hp);
 		
 		printf("Which attack will you do?\n");
-		printf("1. Slash\n");
+		if (A1==1) {
+			printf("1. Slash\n");
+		}
 		scanf("%d", &attack);
-		Hp -= attack + Lvl*2;
+		if (attack == 1) {
+			Hp -= dmg1 + Lvl*2;
+		}
+		
 		printf("You dealed %d DMG!\n", attack + Lvl*2);
 		int Dmg;
 		if (MT == 1) {
