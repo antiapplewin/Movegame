@@ -26,17 +26,41 @@ int Monster(int Lvl, int A1, int d1, int A2, int d2, int A3, int d3, int A4, int
 		printf("Your Hp : %d / Enemy\'s Hp : %d\n\n", PHp, Hp);
 		
 		printf("Which attack will you do?\n");
-		if (A1==1) { // A1 starter
+		if (A1==1) { //A1 starter
 			printf("1. Slash\n");
-		}
-		if (A2==1) { // A2 starter
+		} 
+		if (A2==0) { //A2 starter
 			printf("2. You don\' have a attack\n");
+		} else if (A2==2) {
+			printf("2. Fire magic\n");
+		} else if (A2==3) {
+			printf("2. Assassin magic\n");
+		} else if (A2==4) {
+			printf("2. heal magic\n");
+		} else if (A2==2) {
+			printf("2. Fire magic\n");
+		} else if (A2==3) {
+			printf("2. Assassin magic\n");
+		} else if (A2==4) {
+			printf("2. heal magic\n");
 		}
-		if (A3==1) { // A3 starter
+		if (A3==0) { //A3 starter
 			printf("3. You don\' have a attack\n");
+		} else if (A3==2) {
+			printf("3. Fire magic\n");
+		} else if (A3==3) {
+			printf("3. Assassin magic\n");
+		} else if (A3==4) {
+			printf("3. heal magic\n");
 		}
-		if (A4==1) { // A4 starter
+		if (A4==0) { //A3 starter
 			printf("4. You don\' have a attack\n");
+		} else if (A4==2) {
+			printf("4. Fire magic\n");
+		} else if (A4==3) {
+			printf("4. Assassin magic\n");
+		} else if (A4==4) {
+			printf("4. heal magic\n");
 		}
 		
 		scanf("%d", &attack);
@@ -100,3 +124,4 @@ int Monster(int Lvl, int A1, int d1, int A2, int d2, int A3, int d3, int A4, int
 	}
 	
 }
+
